@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Mazaya Al Adaa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .inner-hero {
+            height: 400px;
+            background: linear-gradient(rgba(0, 45, 112, 0.8), rgba(0, 45, 112, 0.8)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 100px;
+        }
+
+        .services-detail {
+            padding: 100px 0;
+        }
+
+        .service-full-card {
+            display: flex;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid #f1f5f9;
+        }
+
+        .service-full-card:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-full-card:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .service-img-cont {
+            flex: 1;
+            min-height: 400px;
+        }
+
+        .service-img-cont img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-info-cont {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .service-info-cont h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-dark);
+        }
+
+        .service-info-cont p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .feature-list li {
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list i {
+            color: var(--primary);
+        }
+
+        @media (max-width: 992px) {
+            .service-full-card, .service-full-card:nth-child(even) {
+                flex-direction: column;
+            }
+            .service-info-cont { padding: 40px; }
+            .feature-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="scrolled">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-network-wired"></i>
+                MAZAYA AL ADAA <span>FOR CONT.CO.LTD</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="inner-hero">
+        <div class="container" data-aos="fade-up">
+            <h1>Specialized Infrastructure Services</h1>
+            <p>Mastering complex telecom engineering challenges with precision and safety.</p>
+        </div>
+    </section>
+
+    <section class="services-detail">
+        <div class="container">
+            
+            <!-- Service 1 -->
+            <div class="service-full-card" data-aos="fade-up">
+                <div class="service-img-cont">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc48?q=80&w=2074&auto=format&fit=crop" alt="Fiber Optic Network">
+                </div>
+                <div class="service-info-cont">
+                    <span class="section-tag">High Bandwidth</span>
+                    <h2>Fiber Optic Network Solutions</h2>
+                    <p>We provide end-to-end fiber optic solutions, from surveying and route planning to installation and activation. Our team uses state-of-the-art fusion splicers and OTDR testing equipment.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-circle-check"></i> Underground Ducting</li>
+                        <li><i class="fas fa-circle-check"></i> Micro-trenching</li>
+                        <li><i class="fas fa-circle-check"></i> Aerial Installations</li>
+                        <li><i class="fas fa-circle-check"></i> Fiber Blowing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-full-card" data-aos="fade-up">
+                <div class="service-img-cont">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" alt="FTTH">
+                </div>
+                <div class="service-info-cont">
+                    <span class="section-tag">Residential</span>
+                    <h2>FTTH Implementation</h2>
+                    <p>Large-scale Fiber-to-the-Home rollouts for residential communities and commercial buildings. We manage everything from MDU internal cabling to ONT installation.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-circle-check"></i> Site Survey & Design</li>
+                        <li><i class="fas fa-circle-check"></i> Indoor Fiber Pulling</li>
+                        <li><i class="fas fa-circle-check"></i> Splicing & Testing</li>
+                        <li><i class="fas fa-circle-check"></i> End-user Activation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-full-card" data-aos="fade-up">
+                <div class="service-img-cont">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop" alt="OSP Design">
+                </div>
+                <div class="service-info-cont">
+                    <span class="section-tag">Civil Works</span>
+                    <h2>OSP Design & Construction</h2>
+                    <p>Outside Plant (OSP) infrastructure construction including manholes, handholes, and multi-way duct systems. We ensure structural integrity and long-term durability.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-circle-check"></i> Civil Engineering</li>
+                        <li><i class="fas fa-circle-check"></i> Route Pre-survey</li>
+                        <li><i class="fas fa-circle-check"></i> Duct Blockage Clearance</li>
+                        <li><i class="fas fa-circle-check"></i> Manhole Construction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-full-card" data-aos="fade-up">
+                <div class="service-img-cont">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop" alt="Testing">
+                </div>
+                <div class="service-info-cont">
+                    <span class="section-tag">Assurance</span>
+                    <h2>Testing & Commissioning</h2>
+                    <p>Rigorous testing processes to guarantee network performance. We provide comprehensive documentation and certification for all fiber links.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-circle-check"></i> OTDR Analysis</li>
+                        <li><i class="fas fa-circle-check"></i> Power Meter Testing</li>
+                        <li><i class="fas fa-circle-check"></i> End-to-end Continuity</li>
+                        <li><i class="fas fa-circle-check"></i> Certification Reports</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-full-card" data-aos="fade-up">
+                <div class="service-img-cont">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop" alt="Maintenance">
+                </div>
+                <div class="service-info-cont">
+                    <span class="section-tag">24/7 Support</span>
+                    <h2>Network Maintenance Services</h2>
+                    <p>Dedicated teams for preventive and emergency maintenance. Fast response times for fiber cuts and restoration services.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-circle-check"></i> 24/7 On-call Support</li>
+                        <li><i class="fas fa-circle-check"></i> Fiber Relocation</li>
+                        <li><i class="fas fa-circle-check"></i> Fault Localization</li>
+                        <li><i class="fas fa-circle-check"></i> SLA-based Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-full-card" data-aos="fade-up">
+                <div class="service-img-cont">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Heavy Equipment">
+                </div>
+                <div class="service-info-cont">
+                    <span class="section-tag">Rental & Engineering</span>
+                    <h2>Heavy Equipment & Engineering</h2>
+                    <p>Fleet of modern machinery for large-scale infrastructure projects, including excavators, trenchers, and directional drilling machines.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-circle-check"></i> HDD Drilling</li>
+                        <li><i class="fas fa-circle-check"></i> Trenching Machines</li>
+                        <li><i class="fas fa-circle-check"></i> Civil Excavation</li>
+                        <li><i class="fas fa-circle-check"></i> Equipment Rental</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <h2 style="color: white; margin-bottom: 30px;">Ready to discuss your project?</h2>
+            <a href="contact.html" class="btn btn-primary">Contact Our Experts</a>
+            <div style="margin-top: 80px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+                 <p>&copy; 2026 Mazaya Al Adaa. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

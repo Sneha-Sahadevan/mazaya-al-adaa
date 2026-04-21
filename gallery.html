@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Gallery | Mazaya Al Adaa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .inner-hero {
+            height: 400px;
+            background: linear-gradient(rgba(0, 45, 112, 0.85), rgba(0, 45, 112, 0.85)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 100px;
+        }
+
+        .gallery-grid {
+            columns: 3;
+            column-gap: 20px;
+            padding: 80px 0;
+        }
+
+        .gallery-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.6);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            opacity: 0;
+            transition: var(--transition);
+            text-align: center;
+            width: 80%;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid { columns: 2; }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid { columns: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="scrolled">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-network-wired"></i>
+                MAZAYA AL ADAA <span>FOR CONT.CO.LTD</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="inner-hero">
+        <div class="container" data-aos="fade-up">
+            <h1>Excellence in Action</h1>
+            <p>A visual journey through our construction sites and infrastructure projects.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Gallery items -->
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop" alt="Fiber Optic Splicing">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Fiber Splicing</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop" alt="Telecom Tower">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Infrastructure Deployment</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2070&auto=format&fit=crop" alt="OSP Construction">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Civil Engineering</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc462824100?q=80&w=1974&auto=format&fit=crop" alt="Optical Cables">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Cable Management</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Heavy Machinery">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Field Operations</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop" alt="Network Testing">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Quality Testing</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Team Work">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>On-Site Management</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop" alt="Equipment">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Advanced Equipment</h4>
+                    </div>
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop" alt="Underground Fiber">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <h4>Underground Installation</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+             <p>&copy; 2026 Mazaya Al Adaa. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>

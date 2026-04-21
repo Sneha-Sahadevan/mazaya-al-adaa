@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Mazaya Al Adaa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .inner-hero {
+            height: 400px;
+            background: linear-gradient(rgba(0, 45, 112, 0.8), rgba(0, 45, 112, 0.8)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 100px;
+        }
+
+        .vision-mission {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .vm-card {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .vm-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 40px 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: var(--primary-light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--white);
+            border: 4px solid var(--primary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
+
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 25px;
+            border: 5px solid var(--bg-light);
+            transition: var(--transition);
+        }
+
+        .team-card:hover .team-img {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        @media screen and (max-width: 768px) {
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item::after { left: 21px; }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header id="header" class="scrolled">
+        <div class="container nav">
+            <a href="index.html" class="logo">
+                <i class="fas fa-network-wired"></i>
+                MAZAYA AL ADAA <span>FOR CONT.CO.LTD</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="inner-hero">
+        <div class="container" data-aos="fade-up">
+            <h1>About Mazaya Al Adaa</h1>
+            <p>Our journey, our people, and our commitment to excellence.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container about-intro-grid">
+            <div class="about-text" data-aos="fade-right">
+                <span class="section-tag">Our Story</span>
+                <h2 class="section-title">Built on Innovation and Trust</h2>
+                <div class="title-line" style="margin: 20px 0;"></div>
+                <p>Founded in 2004, Mazaya Al Adaa has grown from a local contractor to a regional leader in telecommunications infrastructure. We specialize in the end-to-end deployment of fiber optic networks, offering turnkey solutions that include design, engineering, construction, and maintenance.</p>
+                <p style="margin-top: 20px;">Our success is rooted in our ability to adapt to the rapidly evolving tech landscape while maintaining the highest standards of safety and quality.</p>
+            </div>
+            <div class="about-img" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Construction Site">
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-mission">
+        <div class="container grid grid-2">
+            <div class="vm-card" data-aos="fade-up">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To be the most preferred and reliable partner in digital infrastructure development, enabling a world where everyone is connected through superior technology.</p>
+            </div>
+            <div class="vm-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To deliver high-quality, cost-effective, and sustainable telecom solutions through innovative engineering and a customer-centric approach.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">History</span>
+                <h2 class="section-title">Our Growth Roadmap</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h4>2004</h4>
+                        <p>Inception of Mazaya Al Adaa with a focus on civil works and cabling.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h4>2010</h4>
+                        <p>Expanded into nationwide OSP projects and heavy equipment rental.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-aos="fade-right">
+                    <div class="timeline-content">
+                        <h4>2016</h4>
+                        <p>Pioneered FTTH rollouts in urban centers, partnering with major ISPs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-aos="fade-left">
+                    <div class="timeline-content">
+                        <h4>2023</h4>
+                        <p>Reaching a milestone of 5,000 KM of fiber optics laid across the region.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Leadership</span>
+                <h2 class="section-title">Meet Our Executive Team</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="team-grid">
+                <div class="team-card" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" class="team-img" alt="Chairman">
+                    <h3>Johnathan Mazaya</h3>
+                    <p class="text-muted">Chairman & Founder</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" class="team-img" alt="CEO">
+                    <h3>Sarah Williams</h3>
+                    <p class="text-muted">Chief Executive Officer</p>
+                </div>
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" class="team-img" alt="General Manager">
+                    <h3>David Chen</h3>
+                    <p class="text-muted">General Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container text-center">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-tag">Core Values</span>
+                <h2 class="section-title">What Drives Us</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="grid grid-3" style="margin-top: 50px;">
+                <div class="service-card" data-aos="fade-up">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation</h3>
+                    <p>Always seeking better ways to build and connect.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Reliability</h3>
+                    <p>Delivering on our promises with unwavering quality.</p>
+                </div>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-medal"></i>
+                    <h3>Quality</h3>
+                    <p>Excellence in every splice, trench, and connection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">MAZAYA AL ADAA</a>
+                    <p style="margin-top: 20px;">Delivering excellence in telecom infrastructure since 2004.</p>
+                </div>
+                <div class="footer-col footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Our Services</a>
+                    <a href="projects.html">Projects</a>
+                </div>
+                <div class="footer-col footer-links">
+                    <h4 class="footer-title">Contact</h4>
+                    <a href="contact.html">Get a Quote</a>
+                    <a href="contact.html">Locate Us</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div style="display: flex; gap: 20px; font-size: 1.5rem;">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mazaya Al Adaa. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
