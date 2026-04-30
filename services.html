@@ -9,36 +9,58 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .inner-hero {
-            height: 400px;
-            background: linear-gradient(rgba(0, 45, 112, 0.8), rgba(0, 45, 112, 0.8)), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+            height: 450px;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.2), transparent), url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding-top: 100px;
+            position: relative;
+        }
+
+        .inner-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9));
+        }
+
+        .inner-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .inner-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .services-detail {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .service-full-card {
             display: flex;
-            background: white;
-            border-radius: 24px;
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
+            border-radius: 40px;
             overflow: hidden;
-            margin-bottom: 60px;
-            box-shadow: var(--shadow-md);
+            margin-bottom: 80px;
+            border: 1px solid var(--glass-border);
             transition: var(--transition);
-            border: 1px solid #f1f5f9;
         }
 
         .service-full-card:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            background: rgba(30, 58, 138, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
         .service-full-card:nth-child(even) {
@@ -47,57 +69,74 @@
 
         .service-img-cont {
             flex: 1;
-            min-height: 400px;
+            min-height: 450px;
+            overflow: hidden;
         }
 
         .service-img-cont img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.8s ease;
+            filter: saturate(1.1);
+        }
+
+        .service-full-card:hover .service-img-cont img {
+            transform: scale(1.1);
         }
 
         .service-info-cont {
             flex: 1;
-            padding: 60px;
+            padding: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .service-info-cont h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--primary-dark);
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            font-weight: 800;
+            color: var(--white);
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .service-info-cont p {
             font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            line-height: 1.8;
         }
 
         .feature-list {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 20px;
         }
 
         .feature-list li {
-            font-weight: 600;
+            font-weight: 500;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            color: var(--white);
         }
 
         .feature-list i {
-            color: var(--primary);
+            color: var(--accent);
+            font-size: 1.1rem;
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             .service-full-card, .service-full-card:nth-child(even) {
                 flex-direction: column;
             }
-            .service-info-cont { padding: 40px; }
+            .service-info-cont { padding: 50px; }
+            .service-img-cont { min-height: 350px; }
+        }
+        @media (max-width: 640px) {
             .feature-list { grid-template-columns: 1fr; }
         }
     </style>
@@ -108,8 +147,10 @@
     <header id="header" class="scrolled">
         <div class="container nav">
             <a href="index.html" class="logo">
-                <i class="fas fa-network-wired"></i>
-                MAZAYA AL ADAA <span>FOR CONT.CO.LTD</span>
+                <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo">
+                <div class="logo-text">
+                    <span class="title">Mazaya Al Adaa Co.Ltd</span>
+                </div>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>

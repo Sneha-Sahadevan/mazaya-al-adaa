@@ -9,20 +9,40 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .inner-hero {
-            height: 400px;
-            background: linear-gradient(rgba(0, 45, 112, 0.85), rgba(0, 45, 112, 0.85)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+            height: 450px;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.2), transparent), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding-top: 100px;
+            position: relative;
+        }
+
+        .inner-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9));
+        }
+
+        .inner-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .inner-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .contact-section {
-            padding: 100px 0;
+            padding: 120px 0;
         }
 
         .contact-grid {
@@ -37,59 +57,74 @@
         }
 
         .info-box {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
             display: flex;
             gap: 25px;
             align-items: flex-start;
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateX(10px);
+            border-color: var(--accent);
+            background: rgba(30, 58, 138, 0.2);
         }
 
         .info-box i {
             font-size: 1.8rem;
-            color: var(--primary);
-            background: var(--bg-light);
+            color: var(--accent);
+            background: rgba(37, 99, 235, 0.1);
             width: 60px;
             height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 12px;
+            border-radius: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
         }
 
         .info-box h4 {
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
         }
 
         .info-box p {
             color: var(--text-muted);
+            line-height: 1.6;
         }
 
         .contact-form-cont {
-            background: white;
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
             padding: 60px;
-            border-radius: 30px;
-            box-shadow: var(--shadow-lg);
+            border-radius: 40px;
+            border: 1px solid var(--glass-border);
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             font-weight: 600;
-            color: var(--primary-dark);
+            color: var(--white);
         }
 
         .form-control {
             width: 100%;
-            padding: 15px 20px;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
+            padding: 18px 25px;
+            background: rgba(2, 6, 23, 0.4);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            color: var(--white);
             font-family: inherit;
             font-size: 1rem;
             transition: var(--transition);
@@ -97,7 +132,11 @@
 
         .form-control:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: var(--accent);
+            background: rgba(30, 58, 138, 0.2);
+            box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
+        }
+    </style>
             box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.1);
         }
 
@@ -130,8 +169,10 @@
     <header id="header" class="scrolled">
         <div class="container nav">
             <a href="index.html" class="logo">
-                <i class="fas fa-network-wired"></i>
-                MAZAYA AL ADAA <span>FOR CONT.CO.LTD</span>
+                <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo">
+                <div class="logo-text">
+                    <span class="title">Mazaya Al Adaa Co.Ltd</span>
+                </div>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>

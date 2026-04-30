@@ -18,18 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const icon = mobileMenuBtn.querySelector('i');
         if (navLinks.classList.contains('active')) {
             icon.classList.replace('fa-bars', 'fa-times');
-            navLinks.style.display = 'flex';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '100px';
-            navLinks.style.left = '0';
-            navLinks.style.width = '100%';
-            navLinks.style.background = 'white';
-            navLinks.style.padding = '40px';
-            navLinks.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
         } else {
             icon.classList.replace('fa-times', 'fa-bars');
-            navLinks.style.display = '';
         }
     });
 

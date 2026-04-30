@@ -9,56 +9,86 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .inner-hero {
-            height: 400px;
-            background: linear-gradient(rgba(0, 45, 112, 0.85), rgba(0, 45, 112, 0.85)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+            height: 450px;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.2), transparent), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding-top: 100px;
+            position: relative;
+        }
+
+        .inner-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9));
+        }
+
+        .inner-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .inner-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .gallery-grid {
             columns: 3;
-            column-gap: 20px;
-            padding: 80px 0;
+            column-gap: 30px;
+            padding: 100px 0;
         }
 
         .gallery-item {
             display: inline-block;
             width: 100%;
-            margin-bottom: 20px;
-            border-radius: 12px;
+            margin-bottom: 30px;
+            border-radius: 24px;
             overflow: hidden;
             position: relative;
-            box-shadow: var(--shadow-md);
+            border: 1px solid var(--glass-border);
             cursor: pointer;
+            transition: var(--transition);
         }
 
         .gallery-item img {
             width: 100%;
             display: block;
-            transition: var(--transition);
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: saturate(1.1);
+        }
+
+        .gallery-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
         }
 
         .gallery-item:hover img {
-            transform: scale(1.08);
-            filter: brightness(0.6);
+            transform: scale(1.1);
         }
 
         .gallery-overlay {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            inset: 0;
+            background: linear-gradient(to top, rgba(2, 6, 23, 0.9), transparent);
             color: white;
             opacity: 0;
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            width: 80%;
+            padding: 30px;
         }
 
         .gallery-item:hover .gallery-overlay {
@@ -66,15 +96,23 @@
         }
 
         .gallery-overlay i {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            color: var(--accent);
             margin-bottom: 15px;
+            transform: translateY(20px);
+            transition: var(--transition);
+            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.4));
         }
 
-        @media (max-width: 992px) {
+        .gallery-item:hover .gallery-overlay i {
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
             .gallery-grid { columns: 2; }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             .gallery-grid { columns: 1; }
         }
     </style>
@@ -85,8 +123,10 @@
     <header id="header" class="scrolled">
         <div class="container nav">
             <a href="index.html" class="logo">
-                <i class="fas fa-network-wired"></i>
-                MAZAYA AL ADAA <span>FOR CONT.CO.LTD</span>
+                <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo">
+                <div class="logo-text">
+                    <span class="title">Mazaya Al Adaa Co.Ltd</span>
+                </div>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>

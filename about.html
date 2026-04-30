@@ -9,41 +9,70 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         .inner-hero {
-            height: 400px;
-            background: linear-gradient(rgba(0, 45, 112, 0.8), rgba(0, 45, 112, 0.8)), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
+            height: 450px;
+            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.2), transparent), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding-top: 100px;
+            position: relative;
+        }
+
+        .inner-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9));
+        }
+
+        .inner-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .inner-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .vision-mission {
-            padding: 100px 0;
-            background: var(--bg-light);
+            padding: 120px 0;
+            background: rgba(15, 23, 42, 0.3);
         }
 
         .vm-card {
-            background: white;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
+            padding: 60px 40px;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
             text-align: center;
+            transition: var(--transition);
+        }
+
+        .vm-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            background: rgba(30, 58, 138, 0.2);
         }
 
         .vm-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 25px;
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.3));
         }
 
         .timeline {
             position: relative;
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 80px auto;
             padding: 40px 0;
         }
 
@@ -51,7 +80,7 @@
             content: '';
             position: absolute;
             width: 2px;
-            background: var(--primary-light);
+            background: linear-gradient(to bottom, transparent, var(--primary), transparent);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -68,36 +97,58 @@
         .timeline-item::after {
             content: '';
             position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: var(--white);
-            border: 4px solid var(--primary);
-            top: 15px;
+            width: 16px;
+            height: 16px;
+            right: -8px;
+            background-color: var(--bg-navy);
+            border: 3px solid var(--accent);
+            top: 25px;
             border-radius: 50%;
             z-index: 1;
+            box-shadow: 0 0 10px var(--accent);
         }
 
         .left { left: 0; }
         .right { left: 50%; }
-        .right::after { left: -10px; }
+        .right::after { left: -8px; }
 
         .timeline-content {
-            padding: 20px 30px;
-            background-color: white;
+            padding: 30px 40px;
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
             position: relative;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--accent);
+            background: rgba(30, 58, 138, 0.2);
         }
 
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-top: 50px;
+            margin-top: 60px;
         }
 
         .team-card {
+            background: var(--glass);
+            backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+    </style>
             text-align: center;
         }
 
@@ -130,8 +181,10 @@
     <header id="header" class="scrolled">
         <div class="container nav">
             <a href="index.html" class="logo">
-                <i class="fas fa-network-wired"></i>
-                MAZAYA AL ADAA <span>FOR CONT.CO.LTD</span>
+                <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo">
+                <div class="logo-text">
+                    <span class="title">Mazaya Al Adaa Co.Ltd</span>
+                </div>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -276,7 +329,12 @@
         <div class="container">
             <div class="footer-main">
                 <div class="footer-col">
-                    <a href="index.html" class="footer-logo">MAZAYA AL ADAA</a>
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo" style="max-height: 60px; border-radius: 4px;">
+                        <div class="logo-text">
+                            <span class="title">Mazaya Al Adaa Co.Ltd</span>
+                        </div>
+                    </a>
                     <p style="margin-top: 20px;">Delivering excellence in telecom infrastructure since 2004.</p>
                 </div>
                 <div class="footer-col footer-links">
