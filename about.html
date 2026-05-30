@@ -7,175 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        .inner-hero {
-            height: 450px;
-            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.2), transparent), url('https://images.unsplash.com/photo-1541888946425-d81bb19480c5?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 100px;
-            position: relative;
-        }
 
-        .inner-hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9));
-        }
-
-        .inner-hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .inner-hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .vision-mission {
-            padding: 120px 0;
-            background: rgba(15, 23, 42, 0.3);
-        }
-
-        .vm-card {
-            background: var(--glass);
-            backdrop-filter: var(--glass-blur);
-            padding: 60px 40px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .vm-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            background: rgba(30, 58, 138, 0.2);
-        }
-
-        .vm-card i {
-            font-size: 3.5rem;
-            color: var(--accent);
-            margin-bottom: 30px;
-            filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.3));
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: 80px auto;
-            padding: 40px 0;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background: linear-gradient(to bottom, transparent, var(--primary), transparent);
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
-        }
-
-        .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            background-color: inherit;
-            width: 50%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            right: -8px;
-            background-color: var(--bg-navy);
-            border: 3px solid var(--accent);
-            top: 25px;
-            border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 10px var(--accent);
-        }
-
-        .left { left: 0; }
-        .right { left: 50%; }
-        .right::after { left: -8px; }
-
-        .timeline-content {
-            padding: 30px 40px;
-            background: var(--glass);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            position: relative;
-            border-radius: 20px;
-            transition: var(--transition);
-        }
-
-        .timeline-content:hover {
-            border-color: var(--accent);
-            background: rgba(30, 58, 138, 0.2);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .team-card {
-            background: var(--glass);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 40px;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-        }
-
-        .team-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 25px;
-            border: 5px solid var(--bg-light);
-            transition: var(--transition);
-        }
-
-        .team-card:hover .team-img {
-            border-color: var(--primary);
-            transform: scale(1.05);
-        }
-
-        @media screen and (max-width: 768px) {
-            .timeline::after { left: 31px; }
-            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-            .timeline-item::after { left: 21px; }
-            .right { left: 0%; }
-        }
-    </style>
 </head>
 <body>
 
     <!-- Header -->
-    <header id="header" class="scrolled">
+    <header id="header">
         <div class="container nav">
             <a href="index.html" class="logo">
                 <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo">
@@ -191,6 +28,9 @@
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -330,12 +170,12 @@
             <div class="footer-main">
                 <div class="footer-col">
                     <a href="index.html" class="logo">
-                        <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo" style="max-height: 60px; border-radius: 4px;">
+                        <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo" style="max-height: 55px; border-radius: 6px;">
                         <div class="logo-text">
                             <span class="title">Mazaya Al Adaa Co.Ltd</span>
                         </div>
                     </a>
-                    <p style="margin-top: 20px;">Delivering excellence in telecom infrastructure since 2004.</p>
+                    <p style="margin-top: 20px;">Delivering excellence in telecom infrastructure since 2004. Building the foundations of a connected future.</p>
                 </div>
                 <div class="footer-col footer-links">
                     <h4 class="footer-title">Quick Links</h4>
@@ -345,21 +185,23 @@
                     <a href="projects.html">Projects</a>
                 </div>
                 <div class="footer-col footer-links">
-                    <h4 class="footer-title">Contact</h4>
-                    <a href="contact.html">Get a Quote</a>
-                    <a href="contact.html">Locate Us</a>
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html">Fiber Optic Solutions</a>
+                    <a href="services.html">OSP Construction</a>
+                    <a href="services.html">FTTH Deployment</a>
+                    <a href="services.html">Maintenance</a>
                 </div>
                 <div class="footer-col">
-                    <h4 class="footer-title">Follow Us</h4>
-                    <div style="display: flex; gap: 20px; font-size: 1.5rem;">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 123 Tech Avenue, Industrial Zone, UAE</li>
+                        <li><i class="fas fa-phone" style="color: var(--accent);"></i> +971 4 567 8900</li>
+                        <li><i class="fas fa-envelope" style="color: var(--accent);"></i> info@mazayaaladaa.com</li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Mazaya Al Adaa. All Rights Reserved.</p>
+                <p>&copy; 2026 Mazaya Al Adaa. All Rights Reserved. Built with precision.</p>
             </div>
         </div>
     </footer>

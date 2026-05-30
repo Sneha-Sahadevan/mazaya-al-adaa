@@ -4,13 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
 
     // Header Scroll Effect
-    window.addEventListener('scroll', () => {
+    const checkScroll = () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    };
+    window.addEventListener('scroll', checkScroll);
+    checkScroll();
 
     // Mobile Menu Toggle
     mobileMenuBtn.addEventListener('click', () => {

@@ -7,163 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        .inner-hero {
-            height: 450px;
-            background: radial-gradient(circle at center, rgba(37, 99, 235, 0.2), transparent), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 100px;
-            position: relative;
-        }
 
-        .inner-hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.9));
-        }
-
-        .inner-hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .inner-hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .contact-section {
-            padding: 120px 0;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 80px;
-        }
-
-        .contact-info-boxes {
-            display: grid;
-            gap: 30px;
-        }
-
-        .info-box {
-            background: var(--glass);
-            backdrop-filter: var(--glass-blur);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            display: flex;
-            gap: 25px;
-            align-items: flex-start;
-            transition: var(--transition);
-        }
-
-        .info-box:hover {
-            transform: translateX(10px);
-            border-color: var(--accent);
-            background: rgba(30, 58, 138, 0.2);
-        }
-
-        .info-box i {
-            font-size: 1.8rem;
-            color: var(--accent);
-            background: rgba(37, 99, 235, 0.1);
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            flex-shrink: 0;
-            box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
-        }
-
-        .info-box h4 {
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .info-box p {
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        .contact-form-cont {
-            background: var(--glass);
-            backdrop-filter: var(--glass-blur);
-            padding: 60px;
-            border-radius: 40px;
-            border: 1px solid var(--glass-border);
-        }
-
-        .form-group {
-            margin-bottom: 30px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 12px;
-            font-weight: 600;
-            color: var(--white);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 18px 25px;
-            background: rgba(2, 6, 23, 0.4);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            color: var(--white);
-            font-family: inherit;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-            background: rgba(30, 58, 138, 0.2);
-            box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);
-        }
-
-        .map-section {
-            height: 500px;
-            width: 100%;
-            margin-top: 100px;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-        }
-
-        .cta-footer {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            padding: 80px 0;
-            color: white;
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        @media (max-width: 1024px) {
-            .contact-grid { grid-template-columns: 1fr; gap: 50px; }
-            .contact-form-cont { padding: 40px; }
-        }
-    </style>
 </head>
 <body>
 
     <!-- Header -->
-    <header id="header" class="scrolled">
+    <header id="header">
         <div class="container nav">
             <a href="index.html" class="logo">
                 <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo">
@@ -179,6 +28,9 @@
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -252,14 +104,49 @@
         <div class="container" data-aos="zoom-in">
             <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Partner with Mazaya Al Adaa Today</h2>
             <p style="font-size: 1.2rem; margin-bottom: 40px; opacity: 0.9;">Join the dozens of telecom operators who trust us with their critical infrastructure.</p>
-            <a href="#" class="btn btn-primary" style="background: white; color: var(--primary);">Start Your Project</a>
+            <a href="#" class="btn btn-primary">Start Your Project</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer style="padding: 40px 0;">
-        <div class="container text-center">
-             <p>&copy; 2026 Mazaya Al Adaa. All Rights Reserved.</p>
+    <footer>
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo.jpeg" alt="Mazaya Al Adaa Logo" style="max-height: 55px; border-radius: 6px;">
+                        <div class="logo-text">
+                            <span class="title">Mazaya Al Adaa Co.Ltd</span>
+                        </div>
+                    </a>
+                    <p style="margin-top: 20px;">Delivering excellence in telecom infrastructure since 2004. Building the foundations of a connected future.</p>
+                </div>
+                <div class="footer-col footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Our Services</a>
+                    <a href="projects.html">Projects</a>
+                </div>
+                <div class="footer-col footer-links">
+                    <h4 class="footer-title">Services</h4>
+                    <a href="services.html">Fiber Optic Solutions</a>
+                    <a href="services.html">OSP Construction</a>
+                    <a href="services.html">FTTH Deployment</a>
+                    <a href="services.html">Maintenance</a>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> 123 Tech Avenue, Industrial Zone, UAE</li>
+                        <li><i class="fas fa-phone" style="color: var(--accent);"></i> +971 4 567 8900</li>
+                        <li><i class="fas fa-envelope" style="color: var(--accent);"></i> info@mazayaaladaa.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mazaya Al Adaa. All Rights Reserved. Built with precision.</p>
+            </div>
         </div>
     </footer>
 
