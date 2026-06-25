@@ -1323,8 +1323,194 @@ footer::before {
         font-size: 2.2rem;
     }
     
+    
     .about-stat-label {
         font-size: 0.75rem;
         letter-spacing: 1px;
+    }
+}
+
+/* ==========================================================================
+   Premium Service Card Redesign (Specifically OSP Card Format)
+   ========================================================================== */
+
+.service-premium-card {
+    display: flex;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: var(--glass-blur);
+    border-radius: 40px;
+    overflow: hidden;
+    margin-bottom: 80px;
+    border: 1px solid var(--glass-border);
+    transition: var(--transition);
+}
+
+.service-premium-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(14, 165, 233, 0.6);
+    background: rgba(15, 23, 42, 0.55);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--neon-glow-accent);
+}
+
+.service-premium-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0 80px 50px;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.service-premium-icon-box {
+    width: 64px;
+    height: 64px;
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(14, 165, 233, 0.05);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.1);
+    transition: var(--transition);
+}
+
+.service-premium-card:hover .service-premium-icon-box {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+    background: rgba(14, 165, 233, 0.1);
+}
+
+.service-premium-icon-box i {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.service-premium-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #e2ba6e; /* Muted gold matching OSP badge */
+    letter-spacing: 1px;
+}
+
+.service-premium-middle {
+    flex: 1.3;
+    padding: 80px 50px 80px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.osp-badge {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #e2ba6e; /* Muted gold */
+    background: rgba(226, 186, 110, 0.1);
+    border: 1px solid rgba(226, 186, 110, 0.3);
+    margin-bottom: 25px;
+}
+
+.service-premium-middle h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-weight: 800;
+    color: var(--white);
+    background: linear-gradient(to right, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.service-premium-middle p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.orange-dot-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.orange-dot-list li {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    list-style: none;
+}
+
+.orange-dot-list li::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #f97316; /* Vibrant orange dot */
+    box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+    flex-shrink: 0;
+}
+
+.service-premium-right {
+    flex: 1;
+    min-height: 450px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-premium-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    filter: saturate(1.1);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    mask-image: linear-gradient(to right, transparent 0%, black 40%);
+}
+
+.service-premium-card:hover .service-premium-right img {
+    transform: scale(1.08);
+}
+
+/* Responsiveness for Premium Card */
+@media screen and (max-width: 1024px) {
+    .service-premium-card {
+        flex-direction: column;
+    }
+    .service-premium-left {
+        padding: 40px 40px 0 40px;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    }
+    .service-premium-middle {
+        padding: 30px 40px 40px 40px;
+    }
+    .service-premium-right {
+        min-height: 350px;
+    }
+    .service-premium-right img {
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+        mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .orange-dot-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .service-premium-left {
+        padding: 30px 30px 0 30px;
+    }
+    .service-premium-middle {
+        padding: 20px 30px 30px 30px;
     }
 }
