@@ -52,9 +52,9 @@ body::before {
     bottom: 0;
     width: 100%;
     height: 100%;
-    /* Dark transparent overlay (65% - 75% opacity) on top of the image */
+    /* Dark transparent overlay (80% - 85% opacity) to reduce clutter */
     background-image: 
-        linear-gradient(135deg, rgba(2, 6, 23, 0.75) 0%, rgba(0, 0, 0, 0.65) 100%),
+        linear-gradient(135deg, rgba(2, 6, 23, 0.85) 0%, rgba(0, 0, 0, 0.75) 100%),
         url('assets/neon-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -62,7 +62,7 @@ body::before {
     z-index: -2;
     pointer-events: none;
     filter: blur(3px);
-    transform: scale(1.03); /* Prevents blur artifacts at the outer edges of the viewport */
+    transform: scale(1.01); /* Reduced zoom to zoom out the background image slightly */
     transition: var(--transition);
 }
 
@@ -74,11 +74,11 @@ body::before {
 
 /* Header & Navbar */
 header {
-    height: 100px;
+    height: 76px; /* Reduced navbar height */
     display: flex;
     align-items: center;
     position: fixed;
-    top: 25px;
+    top: 16px; /* Positioned closer to top */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -92,8 +92,8 @@ header {
 }
 
 header.scrolled {
-    height: 80px;
-    top: 15px;
+    height: 64px; /* Reduced scrolled height */
+    top: 10px; /* Positioned closer to top when scrolled */
     background: rgba(2, 6, 23, 0.75);
     backdrop-filter: var(--glass-blur);
     border-color: rgba(14, 165, 233, 0.35);
@@ -111,18 +111,18 @@ header.scrolled {
 .logo {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     text-decoration: none;
 }
 
 .logo img {
-    max-height: 50px;
-    border-radius: 10px;
+    max-height: 44px; /* Logo 25-35% smaller, height 44px */
+    border-radius: 8px;
     transition: var(--transition);
 }
 
 header.scrolled .logo img {
-    max-height: 42px;
+    max-height: 36px; /* Scrolled logo image height smaller */
 }
 
 .logo-text {
@@ -133,14 +133,14 @@ header.scrolled .logo img {
 }
 
 .logo-text .title {
-    font-size: 1.35rem;
+    font-size: 1.15rem; /* Reduced company name font size */
     font-weight: 700;
     letter-spacing: 0.5px;
 }
 
 .nav-links {
     display: flex;
-    gap: 10px;
+    gap: 6px; /* Decreased spacing between navbar items */
 }
 
 .nav-links li {
@@ -149,9 +149,9 @@ header.scrolled .logo img {
 
 .nav-links a {
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 15px; /* Navigation links smaller (15px) */
     color: var(--text-muted);
-    padding: 12px 24px;
+    padding: 8px 18px; /* Reduced padding for smaller active button/pill */
     border-radius: 40px;
     transition: var(--transition);
     text-decoration: none;
@@ -179,11 +179,12 @@ header.scrolled .logo img {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh; /* min-height 100vh instead of height 100vh */
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
-    padding-top: 100px;
+    padding: 120px 0 80px 0; /* Generous breathing room top and bottom */
     background: transparent;
     color: var(--white);
     overflow: hidden;
@@ -198,15 +199,25 @@ header.scrolled .logo img {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.1) 0%, transparent 40%);
+        radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%);
     z-index: 1;
+}
+
+.hero .container {
+    max-width: 1200px; /* Limit content width */
+    margin: 0 auto;
+    padding: 0 60px; /* Generous left/right padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text */
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 .hero-subtitle {
@@ -218,6 +229,7 @@ header.scrolled .logo img {
     margin-bottom: 25px;
     display: flex;
     align-items: center;
+    justify-content: center; /* Centered layout matching reference */
     gap: 15px;
 }
 
@@ -229,25 +241,40 @@ header.scrolled .logo img {
 }
 
 .hero h1 {
-    font-size: clamp(2.8rem, 7vw, 4.8rem);
-    line-height: 1.05;
+    font-size: clamp(2.5rem, 6vw, 76px); /* Desktop size: 76px (72-82px spec) */
+    line-height: 1.1; /* line-height: 1.05-1.1 spec */
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 32px; /* Spacing Heading -> Paragraph: 32px */
     background: linear-gradient(to right, #fff 40%, var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-    font-size: 1.25rem;
-    margin-bottom: 45px;
-    color: var(--text-muted);
-    max-width: 600px;
+    font-size: 21px; /* font-size: 20-22px spec */
+    line-height: 1.7; /* line-height: 1.7 spec */
+    margin-bottom: 48px; /* Spacing Paragraph -> Buttons: 48px */
+    color: rgba(248, 250, 252, 0.7); /* Lighter/softer text color */
+    max-width: 600px; /* Limit paragraph width */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-btns {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    gap: 28px; /* Increased spacing between buttons */
+}
+
+.hero-btns .btn {
+    height: 56px; /* Button height 56px spec */
+    padding: 0 38px; /* Button padding 18px 38px spec */
+    border-radius: 16px; /* Border radius 16px spec */
+    font-size: 17px; /* Font size 17px spec */
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Buttons */
@@ -602,11 +629,11 @@ footer::before {
 
 /* Responsiveness Fixes */
 @media (max-width: 1024px) {
-    header { width: 95%; height: 80px; top: 15px; }
+    header { width: 95%; height: 70px; top: 10px; }
     .nav-links { 
         display: none; 
         position: absolute;
-        top: 90px;
+        top: 80px; /* Position dropdown right below header */
         left: 0;
         width: 100%;
         background: rgba(2, 6, 23, 0.98);
@@ -632,14 +659,25 @@ footer::before {
     }
 
     .mobile-menu-btn { display: flex; }
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 56px); } /* Reduce tablet heading proportionally */
     .about-intro-grid { grid-template-columns: 1fr; gap: 60px; }
     .footer-main { grid-template-columns: 1fr 1fr; gap: 50px; }
 }
 
 @media (max-width: 640px) {
     .footer-main { grid-template-columns: 1fr; }
-    .hero h1 { font-size: 2.8rem; }
-    .hero-btns { flex-direction: column; }
+    .hero h1 { font-size: clamp(2rem, 8vw, 36px); margin-bottom: 24px; } /* Stack cleaner on mobile */
+    .hero p { font-size: 18px; line-height: 1.6; margin-bottom: 36px; }
+    .hero-btns { 
+        flex-direction: column; 
+        width: 100%; 
+        max-width: 320px; 
+        gap: 16px; 
+        margin: 0 auto; 
+    }
+    .hero-btns .btn {
+        width: 100%; /* Full-width stacked buttons on mobile */
+    }
     .exp-badge { padding: 25px; right: 0; bottom: -10px; }
     .stat-number { font-size: 3rem; }
 }
@@ -1460,19 +1498,22 @@ footer::before {
 
 .service-premium-right {
     flex: 1;
-    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     position: relative;
+    background: rgba(15, 23, 42, 0.3);
 }
 
 .service-premium-right img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     transition: transform 0.8s ease;
     filter: saturate(1.1);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
-    mask-image: linear-gradient(to right, transparent 0%, black 40%);
+    display: block;
 }
 
 .service-premium-card:hover .service-premium-right img {
@@ -1497,8 +1538,8 @@ footer::before {
         min-height: 350px;
     }
     .service-premium-right img {
-        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
-        mask-image: linear-gradient(to bottom, transparent 0%, black 30%);
+        object-fit: contain;
+        object-position: center;
     }
 }
 
