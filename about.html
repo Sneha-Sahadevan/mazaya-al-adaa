@@ -7,7 +7,66 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <style>
+        /* Scoped styles for the Our Story section */
+        .our-story-section {
+            position: relative;
+            padding: 120px 0;
+            overflow: hidden;
+        }
+        .our-story-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 450px;
+            height: 450px;
+            background-image: url('assets/logo.jpeg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .our-story-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px !important;
+            margin: 0 auto;
+        }
+        .our-story-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .our-story-content .section-tag {
+            display: block;
+            text-align: center;
+            width: 100%;
+        }
+        .our-story-content .section-title {
+            text-align: center;
+            width: 100%;
+        }
+        .our-story-paragraphs {
+            margin-top: 40px;
+            width: 100%;
+        }
+        .our-story-paragraphs p {
+            text-align: justify;
+            text-justify: inter-word;
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            color: var(--text-muted);
+        }
+        .our-story-paragraphs p:last-child {
+            margin-bottom: 0;
+        }
+    </style>
 </head>
 <body>
 
@@ -41,18 +100,19 @@
         </div>
     </section>
 
-    <section>
-        <div class="container about-intro-grid">
-            <div class="about-text" data-aos="fade-right">
+    <section class="our-story-section">
+        <div class="container our-story-container" data-aos="fade-up">
+            <div class="our-story-content">
                 <span class="section-tag">Our Story</span>
                 <h2 class="section-title">Built on Innovation and Trust</h2>
-                <div class="title-line" style="margin: 20px 0;"></div>
-                <p>Mazaya Al Adaa Contracting Co. Ltd. is a leading telecommunications and fiber optic infrastructure company established in 2005. With nearly two decades of industry experience, we provide end-to-end solutions including survey, design, engineering, construction, testing, commissioning, and managed network services.</p>
-                <p style="margin-top: 20px;">We specialize in Long-Haul, Metro, FTTH, and OSP fiber optic networks, delivering reliable and innovative solutions across Saudi Arabia. Our achievements include 250+ completed projects, 10,000+ km of fiber optic network installations, and successful partnerships with 25+ clients across 5+ regions.</p>
-                <p style="margin-top: 20px;">Driven by quality, safety, and innovation, we remain committed to supporting the Kingdom's digital transformation through world-class telecommunications infrastructure.</p>
-            </div>
-            <div class="about-img" data-aos="fade-left">
-                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Construction Site">
+                <div class="title-line" style="margin: 20px auto;"></div>
+                <div class="our-story-paragraphs">
+                    <p>Mazaya Al Adaa Contracting Co. Ltd. is a leading telecommunications and fiber optic infrastructure company established in 2005. With nearly two decades of industry experience, we provide end-to-end solutions including survey, design, engineering, construction, testing, commissioning, and managed network services.</p>
+                    <p>Since its inception, the company has specialized in delivering end-to-end turnkey solutions covering the complete project lifecycle, including feasibility studies, route surveys, network planning, detailed engineering and design, project management, construction, installation, testing, commissioning, operation, maintenance, and managed network services. Through a commitment to technical excellence and customer satisfaction, MAC has successfully executed complex telecommunications infrastructure projects in diverse geographical environments and challenging operational conditions.</p>
+                    <p>MAC possesses extensive expertise in the implementation and maintenance of Long-Haul, Metro, FTTH (Fiber to the Home), Backbone, Junction, Access, and Outside Plant (OSP) Fiber Optic Networks. The company has successfully completed more than 250 telecommunications infrastructure projects, installed over 10,000 kilometers of fiber optic networks, and served more than 25 clients across five major regions within the Kingdom of Saudi Arabia. These achievements demonstrate MAC's capability to successfully execute large-scale and technically complex projects while maintaining the highest standards of quality, safety, reliability, and operational excellence. MAC was serving as the Operation and Maintenance (O&M) Contractor for Mobily's South Network Fiber Network (SNFN) from 2016 to 2019. During this period, the company successfully maintained approximately 2,200 km of fiber optic infrastructure across one of the Kingdom's most challenging regions. MAC is the only SNFN contractor with proven experience in delivering over 200 km of aerial pole and aerial fiber optic cable (FOC) installations across Southern KSA .</p>
+                    <p>Over the years, MAC has developed strong partnerships and successfully delivered projects for leading organizations including Mobily, Cisco, Saudi Telecom Company (STC), Integrated Telecom Company (ITC), TCC, Huawei Technologies, Siemens AG, Alcatel-Lucent, Thales/STESA, Saudi Electricity Company (SEC), Saudi Aramco, The Ministry of Defense, and The Ministry of National Guard . These long-standing relationships are a testament to the company's technical capabilities, reliability, and commitment to delivering projects that meet and exceed client expectations.</p>
+                    <p>Driven by a highly qualified workforce, robust project management practices, and an unwavering commitment to quality, health, safety, and environmental standards, Mazaya Al Adaa Contracting Co. Ltd. has earned a reputation as a trusted partner and preferred contractor within the telecommunications sector. As the Kingdom continues its digital transformation journey, MAC remains dedicated to delivering world-class telecommunications infrastructure that enables connectivity, economic growth, and technological advancement across Saudi Arabia and the wider GCC region.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -117,18 +177,18 @@
             </div>
             <div class="team-grid">
                 <div class="team-card" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" class="team-img" alt="Chairman">
-                    <h3>Johnathan Mazaya</h3>
-                    <p class="text-muted">Chairman & Founder</p>
+                    <img src="assets/chairman.jpeg" class="team-img" alt="Chairman">
+                    <h3>Mr. Falah M. Subaie</h3>
+                    <p class="text-muted">Chairman</p>
                 </div>
                 <div class="team-card" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" class="team-img" alt="CEO">
-                    <h3>Sarah Williams</h3>
-                    <p class="text-muted">Chief Executive Officer</p>
+                    <img src="assets/ceo.jpeg" class="team-img" alt="CEO">
+                    <h3>Mr. Rajeev Moolayi</h3>
+                    <p class="text-muted">CEO & Head Of Operations</p>
                 </div>
                 <div class="team-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" class="team-img" alt="General Manager">
-                    <h3>David Chen</h3>
+                    <img src="assets/general manager.jpeg" class="team-img" alt="General Manager">
+                    <h3>Mr. Faisal M. Subaie</h3>
                     <p class="text-muted">General Manager</p>
                 </div>
             </div>
