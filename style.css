@@ -433,6 +433,409 @@ section {
     z-index: 1;
 }
 
+/* Telecom Solutions Unified Redesign */
+.services-unified-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(2, 6, 23, 0.4) 100%);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid rgba(14, 165, 233, 0.15);
+    border-radius: 32px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(14, 165, 233, 0.06);
+    margin-top: 50px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.service-column {
+    position: relative;
+    padding: 60px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+.service-column:last-child {
+    border-right: none;
+}
+
+/* Background numbers */
+.service-column .column-bg-num {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 7.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    opacity: 0.06; /* 5-8% opacity */
+    line-height: 1;
+    user-select: none;
+    z-index: 1;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Rounded square containers for icons */
+.service-column .service-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: rgba(14, 165, 233, 0.06);
+    border: 1px solid rgba(14, 165, 233, 0.20);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 35px;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.08);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-column .service-icon-wrapper i {
+    font-size: 2.2rem;
+    color: var(--accent);
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.3));
+    transition: all 0.3s ease;
+}
+
+.service-column h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.service-column p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+/* Hover effects (300ms transition) */
+.service-column:hover {
+    background: rgba(14, 165, 233, 0.03); /* brighten only hovered column */
+    box-shadow: inset 0 0 30px rgba(14, 165, 233, 0.03);
+}
+
+.service-column:hover .service-icon-wrapper {
+    background: rgba(14, 165, 233, 0.12);
+    border-color: rgba(14, 165, 233, 0.5);
+    box-shadow: 0 0 30px rgba(14, 165, 233, 0.25);
+    transform: scale(1.08); /* icon wrapper slightly scales */
+}
+
+.service-column:hover .service-icon-wrapper i {
+    color: var(--white);
+    filter: drop-shadow(0 0 15px rgba(14, 165, 233, 0.6));
+}
+
+.service-column:hover h3 {
+    color: var(--white); /* title changes to bright white */
+}
+
+.service-column:hover .column-bg-num {
+    opacity: 0.12; /* slightly increases visibility */
+    transform: scale(1.05);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .services-unified-box {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 40px;
+    }
+    
+    .services-unified-box .service-column {
+        border-right: 1px solid rgba(255, 255, 255, 0.06);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 50px 35px;
+    }
+    
+    .services-unified-box .service-column:nth-child(2n) {
+        border-right: none;
+    }
+    
+    .services-unified-box .service-column:nth-child(3) {
+        grid-column: span 2;
+        border-bottom: none;
+        border-right: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .services-unified-box {
+        grid-template-columns: 1fr;
+        border-radius: 28px;
+    }
+    
+    .services-unified-box .service-column {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        grid-column: span 1 !important;
+        padding: 45px 30px;
+    }
+    
+    .services-unified-box .service-column:last-child {
+        border-bottom: none;
+    }
+}
+
+/* Core Values Redesign */
+.core-values-section {
+    position: relative;
+    overflow: hidden;
+    padding: 160px 0; /* Generous spacing */
+}
+
+.principles-container {
+    display: grid;
+    grid-template-columns: 38% 58%;
+    gap: 4%;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.principles-left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+    z-index: 2;
+}
+
+.principles-header {
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.principles-left .title-line {
+    margin: 25px 0 0 0; /* Left align the underline */
+}
+
+.principles-right {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.principles-circle-wrapper {
+    position: relative;
+    width: 540px;
+    height: 540px;
+    border-radius: 50%;
+    border: 1px dashed rgba(14, 165, 233, 0.15);
+    animation: orbit-rotate 40s linear infinite;
+    z-index: 2;
+}
+
+/* Glowing center track effect */
+.principles-circle-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px rgba(14, 165, 233, 0.04), 0 0 30px rgba(14, 165, 233, 0.01);
+    pointer-events: none;
+}
+
+/* Pause animation on hover */
+.principles-right:hover .principles-circle-wrapper,
+.principles-right:hover .principles-circle-wrapper .principle-card {
+    animation-play-state: paused;
+}
+
+.principle-card {
+    position: absolute;
+    width: 290px;
+    z-index: 3;
+    animation: card-counter-rotate 40s linear infinite;
+    transition: z-index 0.3s step-start; /* Quick z-index shift */
+}
+
+.principle-card:hover {
+    z-index: 10; /* Bring hovered card to the front */
+    transition: z-index 0s step-start;
+}
+
+.principle-card-inner {
+    border-radius: 24px !important; /* Border radius around 20-24px */
+    padding: 35px 25px !important; /* Premium spacing fitting orbit layout */
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    transform-origin: center;
+}
+
+/* Interactive Pop Up styling on hover */
+.principle-card-inner:hover {
+    transform: scale(1.08) !important; /* Scale up slightly to pop up */
+    background: rgba(15, 23, 42, 0.65) !important;
+    border-color: rgba(14, 165, 233, 0.6) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--neon-glow-accent) !important;
+}
+
+/* Orbit position points */
+.principles-circle-wrapper .principle-card:nth-child(1) {
+    top: 11%;
+    left: 50%;
+}
+
+.principles-circle-wrapper .principle-card:nth-child(2) {
+    top: 69%;
+    left: 84%;
+}
+
+.principles-circle-wrapper .principle-card:nth-child(3) {
+    top: 69%;
+    left: 16%;
+}
+
+/* Keyframes for circular orbital rotation */
+@keyframes orbit-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes card-counter-rotate {
+    from { transform: translate(-50%, -50%) rotate(360deg); }
+    to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+/* Background Decorative Elements */
+.principles-bg-decor {
+    position: absolute;
+    top: 50%;
+    left: -120px;
+    width: 600px;
+    height: 600px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.principles-bg-decor .decor-circle-1 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba(14, 165, 233, 0.12);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.principles-bg-decor .decor-circle-2 {
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    width: 550px;
+    height: 550px;
+    border: 1px solid rgba(14, 165, 233, 0.06);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.principles-bg-decor .decor-glow {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    filter: blur(50px);
+    transform: translateY(-50%);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .principles-container {
+        grid-template-columns: 1fr;
+        gap: 60px; /* Stack layout on tablet/mobile */
+        padding: 0 20px;
+    }
+    
+    .principles-left {
+        min-height: auto;
+        justify-content: flex-start;
+    }
+    
+    .principles-bg-decor {
+        left: -50px;
+        width: 500px;
+        height: 500px;
+    }
+    
+    /* Center circle layout under heading on tablet */
+    .principles-right {
+        height: 600px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Mobile - stack all cards vertically, disable orbit rotation */
+    .principles-right {
+        height: auto;
+        width: 100%;
+        display: block;
+        margin-top: 40px;
+    }
+    
+    .principles-circle-wrapper {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border: none;
+        animation: none;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        border-radius: 0;
+    }
+    
+    .principles-circle-wrapper::before {
+        display: none;
+    }
+    
+    .principles-circle-wrapper .principle-card {
+        position: relative;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100%;
+        animation: none !important;
+    }
+    
+    .principles-circle-wrapper .principle-card-inner {
+        padding: 40px 30px !important;
+    }
+}
+
 /* About Section */
 .about-intro-grid {
     display: grid;
@@ -1263,6 +1666,7 @@ footer::before {
     padding: 140px 0;
     position: relative;
     background: rgba(15, 23, 42, 0.15);
+    overflow: hidden;
 }
 
 .about-company-grid {
@@ -1276,6 +1680,24 @@ footer::before {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+}
+
+.about-company-content::before {
+    content: '';
+    position: absolute;
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 450px;
+    background-image: url('assets/logo removed.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .about-company-content .section-title {
