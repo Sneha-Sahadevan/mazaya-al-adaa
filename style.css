@@ -437,13 +437,8 @@ section {
 .services-unified-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(2, 6, 23, 0.4) 100%);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid rgba(14, 165, 233, 0.15);
-    border-radius: 32px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(14, 165, 233, 0.06);
+    gap: 30px;
     margin-top: 50px;
-    overflow: hidden;
     position: relative;
     z-index: 2;
 }
@@ -456,12 +451,12 @@ section {
     align-items: center;
     text-align: center;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    box-shadow: var(--shadow-sm);
     overflow: hidden;
-}
-
-.service-column:last-child {
-    border-right: none;
 }
 
 /* Background numbers */
@@ -525,8 +520,10 @@ section {
 
 /* Hover effects (300ms transition) */
 .service-column:hover {
-    background: rgba(14, 165, 233, 0.03); /* brighten only hovered column */
-    box-shadow: inset 0 0 30px rgba(14, 165, 233, 0.03);
+    transform: translateY(-8px);
+    background: rgba(15, 23, 42, 0.55);
+    border-color: rgba(14, 165, 233, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--neon-glow-accent);
 }
 
 .service-column:hover .service-icon-wrapper {
@@ -555,40 +552,27 @@ section {
     .services-unified-box {
         grid-template-columns: repeat(2, 1fr);
         margin-top: 40px;
+        gap: 24px;
     }
     
     .services-unified-box .service-column {
-        border-right: 1px solid rgba(255, 255, 255, 0.06);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         padding: 50px 35px;
-    }
-    
-    .services-unified-box .service-column:nth-child(2n) {
-        border-right: none;
     }
     
     .services-unified-box .service-column:nth-child(3) {
         grid-column: span 2;
-        border-bottom: none;
-        border-right: none;
     }
 }
 
 @media screen and (max-width: 768px) {
     .services-unified-box {
         grid-template-columns: 1fr;
-        border-radius: 28px;
+        gap: 20px;
     }
     
     .services-unified-box .service-column {
-        border-right: none !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         grid-column: span 1 !important;
         padding: 45px 30px;
-    }
-    
-    .services-unified-box .service-column:last-child {
-        border-bottom: none;
     }
 }
 
