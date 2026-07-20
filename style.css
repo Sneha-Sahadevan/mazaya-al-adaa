@@ -629,100 +629,96 @@ section {
 .principles-right {
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 520px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
 }
 
-.principles-circle-wrapper {
+.principles-3d-carousel {
     position: relative;
-    width: 540px;
-    height: 540px;
-    border-radius: 50%;
-    border: 1px dashed rgba(14, 165, 233, 0.15);
-    animation: orbit-rotate 40s linear infinite;
-    z-index: 2;
-}
-
-/* Glowing center track effect */
-.principles-circle-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    box-shadow: inset 0 0 50px rgba(14, 165, 233, 0.04), 0 0 30px rgba(14, 165, 233, 0.01);
-    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    transform-style: preserve-3d;
 }
 
-/* Pause animation on hover */
-.principles-right:hover .principles-circle-wrapper,
-.principles-right:hover .principles-circle-wrapper .principle-card {
-    animation-play-state: paused;
-}
-
-.principle-card {
+.principle-card-3d {
     position: absolute;
-    width: 290px;
-    z-index: 3;
-    animation: card-counter-rotate 40s linear infinite;
-    transition: z-index 0.3s step-start; /* Quick z-index shift */
+    width: 320px;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 1s cubic-bezier(0.4, 0, 0.2, 1),
+                z-index 1s step-end;
 }
 
-.principle-card:hover {
-    z-index: 10; /* Bring hovered card to the front */
-    transition: z-index 0s step-start;
+/* Front featured card */
+.principle-card-3d.card-front {
+    transform: translate3d(0, 0, 120px) scale(1.02);
+    opacity: 1;
+    filter: blur(0);
+    z-index: 10;
+    pointer-events: auto;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 1s cubic-bezier(0.4, 0, 0.2, 1),
+                z-index 0s;
+}
+
+/* Background left card */
+.principle-card-3d.card-left {
+    transform: translate3d(-260px, 0, -120px) scale(0.85) rotateY(18deg);
+    opacity: 0.55;
+    filter: blur(2px);
+    z-index: 5;
+    pointer-events: none;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 1s cubic-bezier(0.4, 0, 0.2, 1),
+                z-index 0s 0.2s; /* delay z-index reduction so it stays on top longer when moving to back */
+}
+
+/* Background right card */
+.principle-card-3d.card-right {
+    transform: translate3d(260px, 0, -120px) scale(0.85) rotateY(-18deg);
+    opacity: 0.55;
+    filter: blur(2px);
+    z-index: 5;
+    pointer-events: none;
+    transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 1s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 1s cubic-bezier(0.4, 0, 0.2, 1),
+                z-index 0s 0.2s;
 }
 
 .principle-card-inner {
-    border-radius: 24px !important; /* Border radius around 20-24px */
-    padding: 35px 25px !important; /* Premium spacing fitting orbit layout */
+    border-radius: 24px !important;
+    padding: 35px 25px !important;
     background: rgba(15, 23, 42, 0.55);
     backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-md);
-    transition: var(--transition);
-    transform-origin: center;
+    transition: border-color 1s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 1s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Interactive Pop Up styling on hover */
-.principle-card-inner:hover {
-    transform: scale(1.08) !important; /* Scale up slightly to pop up */
-    background: rgba(15, 23, 42, 0.65) !important;
+/* Glow and background enhancement for front card */
+.principle-card-3d.card-front .principle-card-inner {
+    background: rgba(15, 23, 42, 0.7) !important;
     border-color: rgba(14, 165, 233, 0.6) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--neon-glow-accent) !important;
+    box-shadow: 0 25px 50px rgba(2, 6, 23, 0.6), var(--neon-glow-accent) !important;
 }
 
-/* Orbit position points */
-.principles-circle-wrapper .principle-card:nth-child(1) {
-    top: 11%;
-    left: 50%;
-}
-
-.principles-circle-wrapper .principle-card:nth-child(2) {
-    top: 69%;
-    left: 84%;
-}
-
-.principles-circle-wrapper .principle-card:nth-child(3) {
-    top: 69%;
-    left: 16%;
-}
-
-/* Keyframes for circular orbital rotation */
-@keyframes orbit-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-@keyframes card-counter-rotate {
-    from { transform: translate(-50%, -50%) rotate(360deg); }
-    to { transform: translate(-50%, -50%) rotate(0deg); }
+.principle-card-3d.card-left .principle-card-inner,
+.principle-card-3d.card-right .principle-card-inner {
+    border-color: var(--glass-border) !important;
+    box-shadow: var(--shadow-md) !important;
 }
 
 /* Background Decorative Elements */
@@ -792,7 +788,7 @@ section {
     
     /* Center circle layout under heading on tablet */
     .principles-right {
-        height: 600px;
+        height: 520px;
         width: 100%;
     }
 }
@@ -806,33 +802,32 @@ section {
         margin-top: 40px;
     }
     
-    .principles-circle-wrapper {
+    .principles-3d-carousel {
         position: relative;
         width: 100%;
         height: auto;
-        border: none;
-        animation: none;
         display: flex;
         flex-direction: column;
         gap: 24px;
-        border-radius: 0;
+        perspective: none;
+        transform-style: flat;
     }
     
-    .principles-circle-wrapper::before {
-        display: none;
-    }
-    
-    .principles-circle-wrapper .principle-card {
+    .principles-3d-carousel .principle-card-3d {
         position: relative;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
         width: 100%;
-        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        z-index: 1 !important;
+        pointer-events: auto !important;
     }
     
-    .principles-circle-wrapper .principle-card-inner {
+    .principles-3d-carousel .principle-card-3d .principle-card-inner {
         padding: 40px 30px !important;
+        background: rgba(15, 23, 42, 0.55) !important;
+        border-color: var(--glass-border) !important;
+        box-shadow: var(--shadow-md) !important;
     }
 }
 
