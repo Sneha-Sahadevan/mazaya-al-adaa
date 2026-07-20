@@ -14,26 +14,9 @@
             padding: 120px 0;
             overflow: hidden;
         }
-        .our-story-section::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
-            background-image: url('assets/logo removed.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.45;
-            pointer-events: none;
-            z-index: 0;
-        }
         .our-story-container {
             position: relative;
             z-index: 1;
-            max-width: 1200px !important;
             margin: 0 auto;
         }
         .our-story-content {
@@ -53,7 +36,7 @@
         }
         .our-story-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 55fr 45fr;
             gap: 50px;
             align-items: stretch;
             margin-top: 45px;
@@ -83,7 +66,6 @@
             overflow: hidden;
             border: 1px solid var(--glass-border);
             box-shadow: var(--shadow-lg), var(--neon-glow-primary);
-            transition: var(--transition);
             height: 100%;
             min-height: 500px;
         }
@@ -92,14 +74,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: var(--transition);
-        }
-        .our-story-image-wrap:hover img {
-            transform: scale(1.05);
-        }
-        .our-story-image-wrap:hover {
-            box-shadow: var(--shadow-lg), 0 0 25px rgba(37, 99, 235, 0.5);
-            border-color: rgba(14, 165, 233, 0.4);
         }
         @media screen and (max-width: 1024px) {
             .our-story-grid {
