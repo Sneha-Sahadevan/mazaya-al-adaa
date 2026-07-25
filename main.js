@@ -35,11 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3D Carousel Auto-rotation
+    // 3D Carousel Auto-rotation & Navigation
     const carousel = document.querySelector('.principles-3d-carousel');
     if (carousel) {
         const cards = Array.from(carousel.querySelectorAll('.principle-card-3d'));
+        const prevBtn = document.getElementById('principle-prev');
+        const nextBtn = document.getElementById('principle-next');
+
         let currentIndex = 0; // Starts with Client Partnership (data-index="0")
+        let autoPlayTimer = null;
+        let inactivityTimeout = null;
+        const AUTO_PLAY_DELAY = 2000; // 2 seconds display interval
+        const RESUME_DELAY = 3000;    // 3 seconds inactivity before resuming
 
         // Sort cards by data-index to guarantee consistent order
         cards.sort((a, b) => parseInt(a.dataset.index) - parseInt(b.dataset.index));
@@ -58,13 +65,68 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
-        // Initialize positions
-        updateCarousel();
-
-        // Start auto-rotation (every 4 seconds: 3s display + 1s transition)
-        setInterval(() => {
+        const nextSlide = () => {
             currentIndex = (currentIndex + 1) % cards.length;
             updateCarousel();
-        }, 4000);
+        };
+
+        const prevSlide = () => {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            updateCarousel();
+        };
+
+        const startAutoPlay = () => {
+            stopAutoPlay();
+            autoPlayTimer = setInterval(nextSlide, AUTO_PLAY_DELAY);
+        };
+
+        const stopAutoPlay = () => {
+            if (autoPlayTimer) {
+                clearInterval(autoPlayTimer);
+                autoPlayTimer = null;
+            }
+        };
+
+        const handleUserAction = (actionFn) => {
+            stopAutoPlay();
+            if (inactivityTimeout) {
+                clearTimeout(inactivityTimeout);
+            }
+            actionFn();
+            inactivityTimeout = setTimeout(() => {
+                startAutoPlay();
+            }, RESUME_DELAY);
+        };
+
+        // Prev & Next Buttons
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                handleUserAction(nextSlide);
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                handleUserAction(prevSlide);
+            });
+        }
+
+        // Allow clicking background cards directly to bring them to center
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                if (index !== currentIndex) {
+                    handleUserAction(() => {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                }
+            });
+        });
+
+        // Initialize positions and start auto-play
+        updateCarousel();
+        startAutoPlay();
     }
 });
