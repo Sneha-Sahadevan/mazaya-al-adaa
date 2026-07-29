@@ -433,146 +433,271 @@ section {
     z-index: 1;
 }
 
-/* Telecom Solutions Unified Redesign */
-.services-unified-box {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
+/* Telecom Solutions Asymmetrical Redesign */
+.services-overview {
+    padding: 110px 0 140px 0;
     position: relative;
-    z-index: 2;
-}
-
-.service-column {
-    position: relative;
-    padding: 60px 45px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    box-shadow: var(--shadow-sm);
+    background: transparent;
     overflow: hidden;
 }
 
-/* Background numbers */
-.service-column .column-bg-num {
+/* 3D Wireframe Grid Floor Effect at bottom (Matching Reference Image) */
+.services-overview::after {
+    content: '';
     position: absolute;
-    top: 25px;
-    right: 35px;
-    font-size: 7.5rem;
-    font-weight: 800;
-    color: var(--accent);
-    opacity: 0.06; /* 5-8% opacity */
-    line-height: 1;
-    user-select: none;
-    z-index: 1;
+    bottom: -30px;
+    left: -20%;
+    width: 140%;
+    height: 220px;
+    background: 
+        linear-gradient(to top, rgba(2, 6, 23, 0.95) 0%, rgba(2, 6, 23, 0.4) 60%, transparent 100%),
+        repeating-linear-gradient(90deg, rgba(14, 165, 233, 0.15) 0px, rgba(14, 165, 233, 0.15) 1px, transparent 1px, transparent 40px),
+        repeating-linear-gradient(0deg, rgba(14, 165, 233, 0.15) 0px, rgba(14, 165, 233, 0.15) 1px, transparent 1px, transparent 25px);
+    transform: perspective(600px) rotateX(65deg);
+    transform-origin: bottom center;
     pointer-events: none;
-    transition: all 0.3s ease;
+    z-index: 1;
+    opacity: 0.7;
 }
 
-/* Rounded square containers for icons */
-.service-column .service-icon-wrapper {
-    width: 80px;
-    height: 80px;
-    background: rgba(14, 165, 233, 0.06);
-    border: 1px solid rgba(14, 165, 233, 0.20);
+.services-asymmetric-grid {
+    display: grid;
+    grid-template-columns: 57% 43%;
+    gap: 0;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    max-width: 1380px;
+}
+
+/* Left Column Stage (57% width) */
+.services-staggered-stage {
+    position: relative;
+    width: 100%;
+    max-width: 660px;
+    height: 740px;
+    margin: 0;
+}
+
+.staggered-card {
+    position: absolute;
+    width: 310px;
+    height: 340px;
+    padding: 34px 24px;
+    background: rgba(8, 18, 38, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid rgba(37, 99, 235, 0.45);
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(14, 165, 233, 0.08);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Reference Image Layering & Placement (Card 2 Tucked Behind Cards 1 & 3) */
+.staggered-card.card-fiber {
+    top: 40px;
+    left: 40px;
+    z-index: 10;
+}
+
+.staggered-card.card-ftth {
+    top: 200px;
+    left: 295px;
+    z-index: 5;
+}
+
+.staggered-card.card-maintenance {
+    top: 380px;
+    left: 90px;
+    z-index: 10;
+}
+
+/* Icon Container inside Cards */
+.staggered-icon-wrapper {
+    width: 68px;
+    height: 68px;
+    background: rgba(14, 165, 233, 0.12);
+    border: 1.5px solid rgba(14, 165, 233, 0.35);
+    border-radius: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 35px;
-    box-shadow: 0 0 20px rgba(14, 165, 233, 0.08);
-    position: relative;
-    z-index: 2;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 22px;
+    box-shadow: 0 0 20px rgba(14, 165, 233, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.service-column .service-icon-wrapper i {
-    font-size: 2.2rem;
+.staggered-icon-wrapper i {
+    font-size: 1.8rem;
     color: var(--accent);
-    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.3));
+    filter: drop-shadow(0 0 10px rgba(14, 165, 233, 0.4));
     transition: all 0.3s ease;
 }
 
-.service-column h3 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
+.staggered-card h3 {
+    font-size: 1.08rem;
     font-weight: 700;
-    color: var(--text-muted);
-    position: relative;
-    z-index: 2;
+    color: var(--primary-light);
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
 }
 
-.service-column p {
+.staggered-card p {
+    font-size: 0.88rem;
+    line-height: 1.5;
     color: var(--text-muted);
-    font-size: 1.05rem;
-    line-height: 1.6;
-    position: relative;
-    z-index: 2;
     transition: all 0.3s ease;
 }
 
-/* Hover effects (300ms transition) */
-.service-column:hover {
-    transform: translateY(-8px);
-    background: rgba(15, 23, 42, 0.55);
-    border-color: rgba(14, 165, 233, 0.6);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--neon-glow-accent);
+/* Soft Hover Animations */
+.staggered-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: rgba(15, 28, 56, 0.9);
+    border-color: rgba(14, 165, 233, 0.8);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(14, 165, 233, 0.4);
+    z-index: 20;
 }
 
-.service-column:hover .service-icon-wrapper {
-    background: rgba(14, 165, 233, 0.12);
-    border-color: rgba(14, 165, 233, 0.5);
-    box-shadow: 0 0 30px rgba(14, 165, 233, 0.25);
-    transform: scale(1.08); /* icon wrapper slightly scales */
+.staggered-card:hover .staggered-icon-wrapper {
+    background: rgba(14, 165, 233, 0.22);
+    border-color: rgba(14, 165, 233, 0.65);
+    box-shadow: 0 0 25px rgba(14, 165, 233, 0.45);
+    transform: scale(1.08);
 }
 
-.service-column:hover .service-icon-wrapper i {
+.staggered-card:hover .staggered-icon-wrapper i {
     color: var(--white);
-    filter: drop-shadow(0 0 15px rgba(14, 165, 233, 0.6));
+    filter: drop-shadow(0 0 15px rgba(14, 165, 233, 0.85));
 }
 
-.service-column:hover h3 {
-    color: var(--white); /* title changes to bright white */
+.staggered-card:hover h3 {
+    color: var(--white);
 }
 
-.service-column:hover .column-bg-num {
-    opacity: 0.12; /* slightly increases visibility */
-    transform: scale(1.05);
+/* Right Column Content Styling (43% width) */
+.services-content-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 20px;
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 1024px) {
-    .services-unified-box {
+.services-tag-subtitle {
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3.5px;
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.services-main-title {
+    font-size: clamp(2.3rem, 3.8vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+}
+
+.services-main-title .highlight-text {
+    background: linear-gradient(135deg, var(--accent) 0%, #38bdf8 50%, var(--primary-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.services-accent-line {
+    width: 50px;
+    height: 3.5px;
+    background: var(--accent);
+    border-radius: 2px;
+    margin: 20px 0 32px 0;
+    box-shadow: 0 0 10px rgba(14, 165, 233, 0.5);
+}
+
+.services-description {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 480px;
+}
+
+/* Responsive Media Queries for Tablet/Mobile */
+@media screen and (max-width: 1280px) {
+    .services-asymmetric-grid {
+        grid-template-columns: 57% 43%;
+    }
+    
+    .services-staggered-stage {
+        transform: scale(0.92);
+        transform-origin: left center;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .services-asymmetric-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .services-content-right {
+        order: -1;
+        align-items: center;
+        text-align: center;
+        padding-left: 0;
+    }
+    
+    .services-accent-line {
+        margin: 20px auto 28px auto;
+    }
+    
+    .services-description {
+        max-width: 700px;
+    }
+    
+    .services-staggered-stage {
+        height: auto;
+        max-width: 100%;
+        transform: none;
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
-        margin-top: 40px;
         gap: 24px;
     }
     
-    .services-unified-box .service-column {
-        padding: 50px 35px;
+    .staggered-card {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 280px;
     }
     
-    .services-unified-box .service-column:nth-child(3) {
+    .staggered-card.card-maintenance {
         grid-column: span 2;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .services-unified-box {
+@media screen and (max-width: 640px) {
+    .services-staggered-stage {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
     
-    .services-unified-box .service-column {
-        grid-column: span 1 !important;
-        padding: 45px 30px;
+    .staggered-card.card-maintenance {
+        grid-column: span 1;
+    }
+    
+    .services-main-title {
+        font-size: 2rem;
     }
 }
 
@@ -1480,6 +1605,18 @@ footer::before {
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.project-img.contains-logo {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.project-img.contains-logo img {
+    object-fit: contain;
+}
+
 .project-item:hover .project-img img {
     transform: scale(1.08);
 }
@@ -1511,6 +1648,16 @@ footer::before {
 
 .project-location i, .project-client i {
     color: var(--accent);
+}
+
+.project-client-logo {
+    height: 26px;
+    width: auto;
+    object-fit: contain;
+    background: #ffffff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-left: auto;
 }
 
 .project-location {
