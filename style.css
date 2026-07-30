@@ -360,6 +360,7 @@ section {
     gap: 30px;
 }
 
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
 .grid-3 { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
 .grid-2 { grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); }
 
@@ -1284,6 +1285,7 @@ footer::before {
     }
     .exp-badge { padding: 25px; right: 0; bottom: -10px; }
     .stat-number { font-size: 3rem; }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ==========================================================================
@@ -1903,23 +1905,6 @@ footer::before {
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-}
-
-.about-company-content::before {
-    content: '';
-    position: absolute;
-    top: 68%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 450px;
-    height: 450px;
-    background-image: url('assets/logo removed.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.45;
-    pointer-events: none;
-    z-index: -1;
 }
 
 .about-company-content .section-title {
