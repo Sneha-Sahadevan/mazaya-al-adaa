@@ -473,18 +473,19 @@ section {
 
 /* Left Column Stage (57% width) */
 .services-staggered-stage {
-    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     width: 100%;
-    max-width: 600px;
-    height: 600px;
+    max-width: 580px;
     margin: 0;
 }
 
 .staggered-card {
-    position: absolute;
-    width: 265px;
-    height: 290px;
-    padding: 30px 20px;
+    position: relative;
+    width: 100%;
+    min-height: 270px;
+    padding: 32px 22px;
     background: rgba(8, 18, 38, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -499,23 +500,23 @@ section {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-/* Reference Image Non-Overlapping Staggered Placement */
-.staggered-card.card-fiber {
-    top: 0px;
-    left: 0px;
-    z-index: 10;
+.staggered-card.card-ftth {
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.staggered-card.card-ftth {
-    top: 150px;
-    left: 295px;
-    z-index: 5;
+.staggered-card.card-fiber {
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .staggered-card.card-maintenance {
-    top: 300px;
-    left: 20px;
-    z-index: 10;
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+.staggered-card.card-maintenance p {
+    max-width: 460px;
 }
 
 /* Icon Container inside Cards */
@@ -635,12 +636,7 @@ section {
 /* Responsive Media Queries for Tablet/Mobile */
 @media screen and (max-width: 1280px) {
     .services-asymmetric-grid {
-        grid-template-columns: 57% 43%;
-    }
-    
-    .services-staggered-stage {
-        transform: scale(0.92);
-        transform-origin: left center;
+        grid-template-columns: 55% 45%;
     }
 }
 
@@ -666,25 +662,8 @@ section {
     }
     
     .services-staggered-stage {
-        height: auto;
         max-width: 100%;
-        transform: none;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-    
-    .staggered-card {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        width: 100% !important;
-        height: auto !important;
-        min-height: 280px;
-    }
-    
-    .staggered-card.card-maintenance {
-        grid-column: span 2;
+        gap: 20px;
     }
 }
 
@@ -693,8 +672,11 @@ section {
         grid-template-columns: 1fr;
     }
     
+    .staggered-card.card-ftth,
+    .staggered-card.card-fiber,
     .staggered-card.card-maintenance {
         grid-column: span 1;
+        grid-row: auto;
     }
     
     .services-main-title {
