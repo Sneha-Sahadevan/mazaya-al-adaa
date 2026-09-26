@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Mazaya Al Adaa</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.4">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
@@ -36,7 +36,7 @@
         }
         .our-story-grid {
             display: grid;
-            grid-template-columns: 55fr 45fr;
+            grid-template-columns: 1.18fr 0.82fr;
             gap: 50px;
             align-items: stretch;
             margin-top: 45px;
@@ -60,28 +60,165 @@
         .our-story-paragraphs p:last-child {
             margin-bottom: 0;
         }
-        .our-story-image-wrap {
+
+        /* 5-Item Services Pillar on Right */
+        .our-story-services-pillar {
             position: relative;
-            border-radius: 24px;
+            border-radius: 28px;
             overflow: hidden;
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--shadow-lg), var(--neon-glow-primary);
+            background: rgba(10, 20, 42, 0.65);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(212, 175, 55, 0.28);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.08);
             height: 100%;
-            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 30px;
         }
-        .our-story-image-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+
+        .our-story-services-pillar::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+            pointer-events: none;
         }
+
+        .our-story-services-pillar::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 260px;
+            height: 260px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .service-pillar-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 24px 15px;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            justify-content: center;
+            border-radius: 20px;
+            transition: all 0.35s ease;
+        }
+
+        .service-pillar-card:hover {
+            background: rgba(212, 175, 55, 0.06);
+            transform: translateY(-4px);
+        }
+
+        .pillar-icon-wrap {
+            width: 86px;
+            height: 86px;
+            border-radius: 50%;
+            border: 1.5px solid #d4af37;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(10, 20, 42, 0.85) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.22), inset 0 0 12px rgba(212, 175, 55, 0.12);
+            transition: all 0.35s ease;
+        }
+
+        .pillar-icon-wrap i {
+            font-size: 2.2rem;
+            color: #e2b744;
+            filter: drop-shadow(0 0 8px rgba(226, 183, 68, 0.5));
+            transition: transform 0.35s ease, color 0.35s ease;
+        }
+
+        .service-pillar-card:hover .pillar-icon-wrap {
+            border-color: #facc15;
+            box-shadow: 0 0 30px rgba(250, 204, 21, 0.5), inset 0 0 15px rgba(250, 204, 21, 0.25);
+            transform: scale(1.08);
+        }
+
+        .service-pillar-card:hover .pillar-icon-wrap i {
+            color: #fbbf24;
+            transform: scale(1.06);
+        }
+
+        .pillar-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 1.6px;
+            line-height: 1.45;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            max-width: 320px;
+        }
+
+        .pillar-separator {
+            width: 70%;
+            height: 1px;
+            margin: 0 auto;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.35), transparent);
+            position: relative;
+            z-index: 1;
+        }
+
+        @media screen and (max-width: 1200px) {
+            .our-story-grid {
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 40px;
+            }
+            .pillar-icon-wrap {
+                width: 78px;
+                height: 78px;
+            }
+            .pillar-icon-wrap i {
+                font-size: 1.95rem;
+            }
+            .pillar-title {
+                font-size: 1.1rem;
+            }
+        }
+
         @media screen and (max-width: 1024px) {
             .our-story-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 45px;
             }
-            .our-story-image-wrap {
-                min-height: 400px;
+            .our-story-services-pillar {
+                padding: 35px 25px;
+                min-height: auto;
+            }
+            .service-pillar-card {
+                padding: 24px 15px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .our-story-services-pillar {
+                padding: 30px 15px;
+            }
+            .pillar-icon-wrap {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 14px;
+            }
+            .pillar-icon-wrap i {
+                font-size: 1.7rem;
+            }
+            .pillar-title {
+                font-size: 1.02rem;
+                letter-spacing: 1.2px;
             }
         }
     </style>
@@ -132,8 +269,54 @@
                         <p>Over the years, MAC has developed strong partnerships and successfully delivered projects for leading organizations including Mobily, Cisco, Saudi Telecom Company (STC), Integrated Telecom Company (ITC), TCC, Huawei Technologies, Siemens AG, Alcatel-Lucent, Thales/STESA, Saudi Electricity Company (SEC), Saudi Aramco, The Ministry of Defense, and The Ministry of National Guard . These long-standing relationships are a testament to the company's technical capabilities, reliability, and commitment to delivering projects that meet and exceed client expectations.</p>
                         <p>Driven by a highly qualified workforce, robust project management practices, and an unwavering commitment to quality, health, safety, and environmental standards, Mazaya Al Adaa Contracting Co. Ltd. has earned a reputation as a trusted partner and preferred contractor within the telecommunications sector. As the Kingdom continues its digital transformation journey, MAC remains dedicated to delivering world-class telecommunications infrastructure that enables connectivity, economic growth, and technological advancement across Saudi Arabia and the wider GCC region.</p>
                     </div>
-                    <div class="our-story-image-wrap">
-                        <img src="assets/telecom-tower.jpg" alt="Telecommunications Tower Infrastructure">
+                    <div class="our-story-services-pillar" data-aos="fade-left">
+                        <!-- 1. SURVEY & DESIGN -->
+                        <div class="service-pillar-card">
+                            <div class="pillar-icon-wrap">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <h3 class="pillar-title">SURVEY &amp; DESIGN</h3>
+                        </div>
+                        
+                        <div class="pillar-separator"></div>
+
+                        <!-- 2. CIVIL CONSTRUCTION & FOC INSTALLATION -->
+                        <div class="service-pillar-card">
+                            <div class="pillar-icon-wrap">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h3 class="pillar-title">CIVIL CONSTRUCTION<br>&amp; FOC INSTALLATION</h3>
+                        </div>
+
+                        <div class="pillar-separator"></div>
+
+                        <!-- 3. TESTING & COMMISSIONING -->
+                        <div class="service-pillar-card">
+                            <div class="pillar-icon-wrap">
+                                <i class="fas fa-wave-square"></i>
+                            </div>
+                            <h3 class="pillar-title">TESTING &amp;<br>COMMISSIONING</h3>
+                        </div>
+
+                        <div class="pillar-separator"></div>
+
+                        <!-- 4. 24X7 O&M SERVICES -->
+                        <div class="service-pillar-card">
+                            <div class="pillar-icon-wrap">
+                                <i class="fas fa-satellite"></i>
+                            </div>
+                            <h3 class="pillar-title">24X7 O&amp;M<br>SERVICES</h3>
+                        </div>
+
+                        <div class="pillar-separator"></div>
+
+                        <!-- 5. MANAGED NETWORK SERVICES -->
+                        <div class="service-pillar-card">
+                            <div class="pillar-icon-wrap">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h3 class="pillar-title">MANAGED NETWORK<br>SERVICES</h3>
+                        </div>
                     </div>
                 </div>
             </div>
