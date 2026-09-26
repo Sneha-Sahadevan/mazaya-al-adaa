@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mazaya Al Adaa | Advanced Telecom & Fiber Optic Solutions</title>
     <meta name="description" content="Empowering Digital Connectivity Through Advanced Technology. Leading provider of telecom and fiber optic infrastructure services.">
-    <link rel="stylesheet" href="style.css?v=1.2">
+    <link rel="stylesheet" href="style.css?v=1.4">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,36 +146,58 @@
 
     <!-- Services Overview -->
     <section class="services-overview">
-        <div class="container text-center">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-tag">OUR CORE SERVICES</span>
-                <h2 class="section-title">END-TO-END <span class="highlight-text">TELECOM SOLUTIONS</span></h2>
-                <div class="title-line"></div>
-                <p class="services-header-description">
-                    Mazaya Al Adaa Co.Ltd provides complete telecom infrastructure solutions designed to meet the growing demands of modern connectivity. From installation to maintenance, we deliver reliable, scalable, and future-ready services.
-                </p>
+        <div class="container services-section-container">
+            <!-- Left Side: Subtitle, Title, Line & Description -->
+            <div class="services-left" data-aos="fade-right">
+                <div class="services-header">
+                    <span class="section-tag">OUR CORE SERVICES</span>
+                    <h2 class="section-title">END-TO-END <span class="highlight-text">TELECOM SOLUTIONS</span></h2>
+                    <div class="title-line"></div>
+                    <p class="services-header-description">
+                        Mazaya Al Adaa Co.Ltd provides complete telecom infrastructure solutions designed to meet the growing demands of modern connectivity. From installation to maintenance, we deliver reliable, scalable, and future-ready services.
+                    </p>
+                </div>
             </div>
             
-            <div class="services-cards-grid">
-                <!-- Card 1: OSP Services & Contracting -->
-                <div class="service-card" data-aos="fade-up">
-                    <i class="fas fa-home"></i>
-                    <h3>OSP Services & Contracting</h3>
-                    <p>High-speed Fiber Optic solutions & Implementation services for the deployment of reliable and scalable telecommunications infrastructure. Our experienced teams manage all aspects of network construction, ensuring quality, safety, and timely project delivery.</p>
-                </div>
-                
-                <!-- Card 2: Mazaya Al Adha IT & Telecom Co.Ltd -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-project-diagram"></i>
-                    <h3>Mazaya Al Adha IT & Telecom Co.Ltd</h3>
-                    <p>MAZAYA AL ADHA IT & Telecom Co. Ltd is our trading division with a mission to Provide Efficient, Reliable, Timely and Cost Effective Telecommunication, Electrical, Network Products and Services which exceeding Customers’ Expectations by maximize trade potential of international brands in the Kingdom through investing in human potential, customer relationships and use of modern technologies.</p>
-                </div>
-                
-                <!-- Card 3: Operation & Maintenance (O&M) -->
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-tools"></i>
-                    <h3>Operation & Maintenance (O&M)</h3>
-                    <p>Reliable Operation & Maintenance (O&M) services designed to ensure continuous network availability, optimal performance, and rapid fault resolution.</p>
+            <!-- Right Side: 3-Card Carousel -->
+            <div class="services-right" data-aos="fade-left">
+                <div class="services-carousel-wrapper">
+                    <button class="carousel-nav-btn prev-btn" id="services-prev" aria-label="Previous Service">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    
+                    <div class="services-3d-carousel">
+                        <!-- Card 1: OSP Services & Contracting -->
+                        <div class="services-card-3d" data-index="0">
+                            <div class="service-card services-card-inner">
+                                <i class="fas fa-home"></i>
+                                <h3>OSP Services & Contracting</h3>
+                                <p>High-speed Fiber Optic solutions & Implementation services for the deployment of reliable and scalable telecommunications infrastructure. Our experienced teams manage all aspects of network construction, ensuring quality, safety, and timely project delivery.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 2: Mazaya Al Adha IT & Telecom Co.Ltd -->
+                        <div class="services-card-3d" data-index="1">
+                            <div class="service-card services-card-inner">
+                                <i class="fas fa-project-diagram"></i>
+                                <h3>Mazaya Al Adha IT & Telecom Co.Ltd</h3>
+                                <p>MAZAYA AL ADHA IT & Telecom Co. Ltd is our trading division with a mission to Provide Efficient, Reliable, Timely and Cost Effective Telecommunication, Electrical, Network Products and Services which exceeding Customers’ Expectations by maximize trade potential of international brands in the Kingdom through investing in human potential, customer relationships and use of modern technologies.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Card 3: Operation & Maintenance (O&M) -->
+                        <div class="services-card-3d" data-index="2">
+                            <div class="service-card services-card-inner">
+                                <i class="fas fa-tools"></i>
+                                <h3>Operation & Maintenance (O&M)</h3>
+                                <p>Reliable Operation & Maintenance (O&M) services designed to ensure continuous network availability, optimal performance, and rapid fault resolution.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-nav-btn next-btn" id="services-next" aria-label="Next Service">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
